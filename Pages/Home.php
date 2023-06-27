@@ -1,9 +1,13 @@
 <?php
 
+namespace Pages;
+
+use DependencyContainer;
 use Services\IImageManager;
-use Services\Router;
 use Services\UserManagerBase;
-require_once "Utils\RouteConstants.php";
+use Utils\Router;
+
+require_once "Utils/RouteConstants.php";
 
 class Home
 {
@@ -14,11 +18,13 @@ class Home
 }
 
 $component = DependencyContainer::getContainer()->get(Home::class);
-if (!$component->userManager->isCurrentUserAuthenticated()) Router::redirectToLocalPageByKey(ROUTE_Login);
+if (!$component->userManager->isCurrentUserAuthenticated()) {
+    Router::redirectToLocalPageByKey(ROUTE_Login);
+}
 ?>
 
-<link rel="stylesheet" href="stylesheets/Home.css"/>
-<link rel="stylesheet" href="stylesheets/Hoverable.css"/>
+<link rel="stylesheet" href="/LWHW/wwwroot/stylesheets/Home.css"/>
+<link rel="stylesheet" href="/LWHW/wwwroot/stylesheets/Hoverable.css"/>
 <div id="body" class="container-fluid">
     <div class="row justify-content-center align-items-center">
         <div>
@@ -38,7 +44,7 @@ if (!$component->userManager->isCurrentUserAuthenticated()) Router::redirectToLo
                 }
                 ?>
             </div>
-            <form method="post" class="text-center" enctype="multipart/form-data" action="Outlet.php?page=upload">
+            <form method="post" class="text-center" enctype="multipart/form-data" action="/LWHW/Outlet.php?page=upload">
                 <input class="btn btn-primary" type="file" accept="image/*" name="image" onchange="this.form.submit()"/>
             </form>
         </div>

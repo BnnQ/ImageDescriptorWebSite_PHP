@@ -1,7 +1,9 @@
 <?php
+namespace Pages;
 
-use Services\Router;
+use DependencyContainer;
 use Services\UserManagerBase;
+use Utils\Router;
 
 class Logout
 {

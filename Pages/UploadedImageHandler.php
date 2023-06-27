@@ -1,8 +1,11 @@
 <?php
 
+namespace Pages;
+
+use DependencyContainer;
 use Services\IImageManager;
-use Services\Router;
 use Services\UserManagerBase;
+use Utils\Router;
 
 class UploadedImageHandler {
     public function __construct(public readonly UserManagerBase $userManager, public readonly IImageManager $imageManager)

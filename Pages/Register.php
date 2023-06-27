@@ -1,8 +1,10 @@
 <?php
+namespace Pages;
 
+use DependencyContainer;
 use Exceptions\UsernameAlreadyTakenException;
-use Services\Router;
 use Services\UserManagerBase;
+use Utils\Router;
 
 require_once "Utils\RouteConstants.php";
 
@@ -18,41 +20,40 @@ $component = DependencyContainer::getContainer()->get(Register::class);
 ?>
 
 <?php
+function validate(string $username, string $password): string | null  {
+    $usernameLength = strlen($username);
+    $passwordLength = strlen($password);
+
+    if ($usernameLength < 3 || $usernameLength > 30)
+        return "Username length must be between 3 and 30.";
+
+    if ($passwordLength < 3 || $passwordLength > 30)
+        return "Password length must be between 3 and 30.";
+
+    return null;
+}
+
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    try {
-        $component->userManager->signUpUser($username, $password);
-        Router::redirectToLocalPageByKey(ROUTE_Home);
-    } catch (UsernameAlreadyTakenException $exception) {
-        ?>
-        <div class="toast-container position-fixed" style="top: 50px; left: 50%; transform: translateX(-50%)">
-            <div id="errorToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
-                 style="width: 600px!important">
-                <div class="toast-header bg-danger">
-                    <strong class="me-auto text-light">Error</strong>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
-                            aria-label="Close"></button>
-                </div>
-                <?php
-                echo "<div class='toast-body'><div>Username already taken!</div></div>";
-                ?>
-            </div>
-        </div>
-        <script type="text/javascript">
-            const toastElement = document.getElementById("errorToast");
-            if (toastElement) {
-                const toast = new bootstrap.Toast(toastElement, {delay: 10000});
-                toast.show();
-            }
-        </script>
-        <?php
+    if (($errorMessage = validate($username, $password)) !== null) {
+        include "ErrorToast.php";
+    } else {
+        try {
+            $component->userManager->signUpUser($username, $password);
+            Router::redirectToLocalPageByKey(ROUTE_Home);
+        } catch (UsernameAlreadyTakenException $exception) {
+            $errorMessage = "Username already taken!";
+            include "ErrorToast.php";
+        }
     }
+
 }
 ?>
-<link rel="stylesheet" href="stylesheets/Account.css"/>
-<link rel="stylesheet" href="stylesheets/Register.css"/>
+
+<link rel="stylesheet" href="/LWHW/wwwroot/stylesheets/Account.css"/>
+<link rel="stylesheet" href="/LWHW/wwwroot/stylesheets/Register.css"/>
 <div id="body" class="container-fluid p-0">
     <div class="row">
         <div class="col-md-4 col-12">
@@ -67,12 +68,12 @@ if (isset($_POST['submit'])) {
             <div id="form-wrapper" class="container-fluid">
                 <div class="text-center">
                     <h1 class="fw-bold mb-4" style="font-size: 35px">Join SeeSay</h1>
-                    <h2 class="mb-4 label-sm text-light-gray">Already have an account? <a href="Outlet.php?page=login"
+                    <h2 class="mb-4 label-sm text-light-gray">Already have an account? <a href="/LWHW/Outlet.php?page=login"
                                                                                           class="d-inline text-primary">Login</a>
                     </h2>
                 </div>
 
-                <form method="POST" action="Outlet.php?page=register">
+                <form method="POST" action="/LWHW/Outlet.php?page=register">
                     <div class="row mb-1">
                         <div class="form-group">
                             <label class="form-label" for="username"></label>

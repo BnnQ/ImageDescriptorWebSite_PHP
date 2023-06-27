@@ -1,6 +1,6 @@
 <?php
 
-namespace Services;
+namespace Utils;
 
 use Models\Route;
 
@@ -22,7 +22,7 @@ class Router
 
     public static function redirectToLocalPageByKey(string $routeKey): void
     {
-        echo "<script>location.replace('Outlet.php?page=$routeKey');</script>";
+        echo "<script>location.replace('/LWHW/Outlet.php?page=$routeKey');</script>";
     }
 
 }
