@@ -2,6 +2,7 @@
 
 namespace Services;
 
+require_once "Utils\RouteConstants.php";
 use Exceptions\UserNotFoundException;
 use Models\Entities\User;
 
