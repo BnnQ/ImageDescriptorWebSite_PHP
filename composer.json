@@ -7,11 +7,11 @@
     },
     "autoload": {
         "psr-4": {
-            "1\\Lwhw\\": "src/",
             "Services\\": "Services/",
             "Exceptions\\": "Exceptions/",
             "Models\\": "Models/",
-            "Models\\Entities\\": "Models/Entities/"
+            "Models\\Entities\\": "Models/Entities/",
+            "Pages\\": "Pages/"
         }
     },
     "minimum-stability": "dev"

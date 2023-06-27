@@ -11,6 +11,10 @@ class ComposerStaticInit0688a4f2d3ab88b22de3a6c9736c4a1f
         array (
             'Services\\' => 9,
         ),
+        'P' => 
+        array (
+            'Pages\\' => 6,
+        ),
         'M' => 
         array (
             'Models\\Entities\\' => 16,
@@ -24,16 +28,16 @@ class ComposerStaticInit0688a4f2d3ab88b22de3a6c9736c4a1f
         array (
             'Exceptions\\' => 11,
         ),
-        1 => 
-        array (
-            '1\\Lwhw\\' => 7,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'Services\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Services',
+        ),
+        'Pages\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Pages',
         ),
         'Models\\Entities\\' => 
         array (
@@ -50,10 +54,6 @@ class ComposerStaticInit0688a4f2d3ab88b22de3a6c9736c4a1f
         'Exceptions\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Exceptions',
-        ),
-        '1\\Lwhw\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
