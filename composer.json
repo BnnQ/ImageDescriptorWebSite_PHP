@@ -1,0 +1,18 @@
+{
+    "name": "1/lwhw",
+    "type": "project",
+    "require": {
+        "fivetwo/dependency-injection": "dev-develop",
+        "ext-openssl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "1\\Lwhw\\": "src/",
+            "Services\\": "Services/",
+            "Exceptions\\": "Exceptions/",
+            "Models\\": "Models/",
+            "Models\\Entities\\": "Models/Entities/"
+        }
+    },
+    "minimum-stability": "dev"
+}

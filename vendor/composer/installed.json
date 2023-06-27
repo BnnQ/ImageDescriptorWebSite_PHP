@@ -1,0 +1,74 @@
+{
+    "packages": [
+        {
+            "name": "fivetwo/dependency-injection",
+            "version": "dev-develop",
+            "version_normalized": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fivetwo/dependency-injection.git",
+                "reference": "9b65aa3eaa981c031b82af25feffe9bdc2d05009"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fivetwo/dependency-injection/zipball/9b65aa3eaa981c031b82af25feffe9bdc2d05009",
+                "reference": "9b65aa3eaa981c031b82af25feffe9bdc2d05009",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "fivetwo/remove-symfony-polyfill": "^8.1",
+                "friendsofphp/php-cs-fixer": "^3.8",
+                "jetbrains/phpstorm-stubs": ">=2022.1",
+                "phpstan/phpstan": "^1.7",
+                "phpunit/phpunit": "^9.5",
+                "psalm/plugin-phpunit": ">=0.16",
+                "vimeo/psalm": "^4.23"
+            },
+            "time": "2022-07-20T03:39:26+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "FiveTwo\\DependencyInjection\\": "src/FiveTwo/DependencyInjection/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew Suhocki",
+                    "email": "matt@fivetwo.org"
+                }
+            ],
+            "description": "The Five Two Dependency Injection Library",
+            "homepage": "https://github.com/fivetwo/dependency-injection",
+            "keywords": [
+                "dependency",
+                "dependency injection",
+                "di",
+                "injection",
+                "inversion of control",
+                "ioc"
+            ],
+            "support": {
+                "issues": "https://github.com/fivetwo/dependency-injection/issues",
+                "source": "https://github.com/fivetwo/dependency-injection/tree/develop"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/suhock",
+                    "type": "github"
+                }
+            ],
+            "install-path": "../fivetwo/dependency-injection"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
