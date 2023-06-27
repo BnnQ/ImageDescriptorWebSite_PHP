@@ -2,6 +2,11 @@
 
 
 use FiveTwo\DependencyInjection\Container;
+use Pages\Home;
+use Pages\Login;
+use Pages\Logout;
+use Pages\Register;
+use Pages\UploadedImageHandler;
 use Services\IImageManager;
 use Services\ITokenGenerator;
 use Services\LocalImageManager;
